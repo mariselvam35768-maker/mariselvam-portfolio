@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mari Selvam | Software Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="cursor-follower"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">Mari<span>Selvam</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="reveal-text">Hi, I'm <span>Mari Selvam</span></h1>
+            <p class="reveal-text">Fresher & Junior Software Developer</p>
+            <div class="hero-btns reveal-text">
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="#contact" class="btn secondary-btn">Let's Talk</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am a passionate <strong>Software Developer</strong> currently pursuing a Bachelor of Science in Computer Science at Ayya Nadar Janaki Ammal College, Sivakasi (Graduating 2026).</p>
+                    <p>I specialize in building functional, high-performance web applications and have a keen interest in AI/ML concepts like RAG and LLMs.</p>
+                </div>
+                <div class="education-timeline">
+                    <h3>Education</h3>
+                    <div class="timeline-item">
+                        <span class="date">2023 - 2026</span>
+                        <h4>Ayya Nadar Janaki Ammal College</h4>
+                        <p>B.Sc Computer Science | Sivakasi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">2017 - 2023</span>
+                        <h4>PACM Higher Secondary School</h4>
+                        <p>Computer Science Stream | Rajapalayam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h4>Python</h4>
+                    <span class="skill-tags">NumPy, Pandas, ML</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react"></i>
+                    <h4>Web Dev</h4>
+                    <span class="skill-tags">React JS, Express, PHP</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h4>Databases</h4>
+                    <span class="skill-tags">SQL, MongoDB</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>AI/ML</h4>
+                    <span class="skill-tags">RAG, LLM, Matplotlib</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Data Viz</h4>
+                    <span class="skill-tags">PowerBi, Excel, Seaborn</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h4>VCS</h4>
+                    <span class="skill-tags">Git & GitHub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Mahal Booking Website</h3>
+                        <p>A full-stack event management platform for Srilakshmi Residency Mahal.</p>
+                        <a href="https://srilakshmiresidencymahal.saegroup.in/" target="_blank" class="project-link">Explore <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #ef4444, #b91c1c);">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Nity-Sale</h3>
+                        <p>Complete e-commerce platform built using PHP and SQL.</p>
+                        <span class="badge">PHP</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #10b981, #047857);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cricket Tournament System</h3>
+                        <p>Event Management System built with React JS and Express JS.</p>
+                        <span class="badge">React JS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                        <i class="fas fa-table-list"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sales Dashboard</h3>
+                        <p>Complex data visualization and reporting built using Microsoft Excel.</p>
+                        <span class="badge">Excel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section dark-section">
+        <div class="container">
+            <div class="contact-box glass">
+                <h2 class="section-title">Let's Connect</h2>
+                <p>I'm always open to discussing new projects, creative ideas or opportunities.</p>
+                <div class="contact-details">
+                    <a href="mailto:mariselvam35768@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        mariselvam35768@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/mari-selvam-4b6114281" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn Profile
+                    </a>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Mari Selvam. Designed with passion.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
