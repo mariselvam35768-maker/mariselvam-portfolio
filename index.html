@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <canvas id="bg-canvas"></canvas>
     <div class="cursor-follower"></div>
 
     <nav class="glass-nav">
@@ -32,11 +33,11 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1 class="reveal-text">Hi, I'm <span>Mari Selvam</span></h1>
-            <p class="reveal-text">Fresher & Junior Software Developer</p>
+            <h1 class="reveal-text"><span>Data Analyst</span> &<br>Insight Architect</h1>
+            <p class="reveal-text"><strong>Fresher & Aspiring Data Analyst</strong> | Transforming complex datasets into actionable business intelligence. Specializing in Python, SQL, and advanced Data Visualization.</p>
             <div class="hero-btns reveal-text">
-                <a href="#projects" class="btn primary-btn">View My Work</a>
-                <a href="#contact" class="btn secondary-btn">Let's Talk</a>
+                <a href="#projects" class="btn primary-btn">Explore My Work</a>
+                <a href="#contact" class="btn secondary-btn">Let's Connect</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -46,18 +47,18 @@
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">The <span>Data</span> Story</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I am a passionate <strong>Software Developer</strong> currently pursuing a Bachelor of Science in Computer Science at Ayya Nadar Janaki Ammal College, Sivakasi (Graduating 2026).</p>
-                    <p>I specialize in building functional, high-performance web applications and have a keen interest in AI/ML concepts like RAG and LLMs.</p>
+                    <p>I am a <strong>Fresher Data Analyst</strong> passionate about uncovering hidden patterns in data to drive strategic decisions. Currently pursuing B.Sc in Computer Science at Ayya Nadar Janaki Ammal College (2026).</p>
+                    <p>My approach combines statistical rigor with creative visualization, ensuring that data speaks a language everyone can understand.</p>
                 </div>
                 <div class="education-timeline">
-                    <h3>Education</h3>
+                    <h3>Academic Path</h3>
                     <div class="timeline-item">
                         <span class="date">2023 - 2026</span>
                         <h4>Ayya Nadar Janaki Ammal College</h4>
-                        <p>B.Sc Computer Science | Sivakasi</p>
+                        <p>B.Sc Computer Science | Focus on Data Structures & Analytics</p>
                     </div>
                     <div class="timeline-item">
                         <span class="date">2017 - 2023</span>
@@ -69,39 +70,39 @@
         </div>
     </section>
 
-    <section id="skills" class="section dark-section">
+    <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title">Technical <span>Arsenal</span></h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <i class="fab fa-python"></i>
-                    <h4>Python</h4>
-                    <span class="skill-tags">NumPy, Pandas, ML</span>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h4>Web Dev</h4>
-                    <span class="skill-tags">React JS, Express, PHP</span>
+                    <h4>Python for Data</h4>
+                    <span class="skill-tags">NumPy, Pandas, Scikit-learn</span>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-database"></i>
-                    <h4>Databases</h4>
-                    <span class="skill-tags">SQL, MongoDB</span>
+                    <h4>Database Mastery</h4>
+                    <span class="skill-tags">SQL, MongoDB, PostgreSQL</span>
                 </div>
                 <div class="skill-card">
-                    <i class="fas fa-brain"></i>
-                    <h4>AI/ML</h4>
-                    <span class="skill-tags">RAG, LLM, Matplotlib</span>
+                    <i class="fas fa-chart-pie"></i>
+                    <h4>Visual Intelligence</h4>
+                    <span class="skill-tags">Power BI, Tableau, Matplotlib</span>
                 </div>
                 <div class="skill-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Data Viz</h4>
-                    <span class="skill-tags">PowerBi, Excel, Seaborn</span>
+                    <i class="fas fa-file-excel"></i>
+                    <h4>Advanced Excel</h4>
+                    <span class="skill-tags">VLOOKUP, Pivot Tables, Macros</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>AI Integration</h4>
+                    <span class="skill-tags">RAG Systems, LLM Prompting</span>
                 </div>
                 <div class="skill-card">
                     <i class="fab fa-git-alt"></i>
-                    <h4>VCS</h4>
-                    <span class="skill-tags">Git & GitHub</span>
+                    <h4>Version Control</h4>
+                    <span class="skill-tags">Git, GitHub Actions</span>
                 </div>
             </div>
         </div>
@@ -109,80 +110,123 @@
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Featured <span>Case Studies</span></h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                    <div class="project-img-placeholder" style="background: var(--gradient-1);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Interactive Sales Analytics</h3>
+                        <p>Comprehensive Sales Dashboard built with Excel and Power BI, providing deep insights into regional performance and trend forecasting.</p>
+                        <div class="project-footer">
+                            <span class="badge">Power BI</span>
+                            <a href="#" class="project-link">View Case <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-placeholder" style="background: var(--gradient-2);">
                         <i class="fas fa-hotel"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Mahal Booking Website</h3>
-                        <p>A full-stack event management platform for Srilakshmi Residency Mahal.</p>
-                        <a href="https://srilakshmiresidencymahal.saegroup.in/" target="_blank" class="project-link">Explore <i class="fas fa-arrow-right"></i></a>
+                        <h3>Hospitality Booking Insights</h3>
+                        <p>Full-stack Mahal booking platform with integrated reporting modules to track seasonal occupancy and revenue growth.</p>
+                        <div class="project-footer">
+                            <span class="badge">PHP & SQL</span>
+                            <a href="https://srilakshmiresidencymahal.saegroup.in/" target="_blank" class="project-link">Live Site <i class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #ef4444, #b91c1c);">
-                        <i class="fas fa-shopping-cart"></i>
+                    <div class="project-img-placeholder" style="background: var(--gradient-3);">
+                        <i class="fas fa-users"></i>
                     </div>
                     <div class="project-info">
-                        <h3>E-Commerce Nity-Sale</h3>
-                        <p>Complete e-commerce platform built using PHP and SQL.</p>
-                        <span class="badge">PHP</span>
+                        <h3>Customer Churn Prediction</h3>
+                        <p>Machine learning model developed in Python to predict customer churn with 85% accuracy using historical behavioral data.</p>
+                        <div class="project-footer">
+                            <span class="badge">Python ML</span>
+                            <a href="#" class="project-link">GitHub <i class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #10b981, #047857);">
-                        <i class="fas fa-trophy"></i>
+                    <div class="project-img-placeholder" style="background: var(--gradient-1);">
+                        <i class="fas fa-shopping-basket"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Cricket Tournament System</h3>
-                        <p>Event Management System built with React JS and Express JS.</p>
-                        <span class="badge">React JS</span>
+                        <h3>Market Basket Analysis</h3>
+                        <p>Data mining project using Apriori algorithm to identify product associations and optimize cross-selling strategies for retail.</p>
+                        <div class="project-footer">
+                            <span class="badge">Python & SQL</span>
+                            <a href="#" class="project-link">Analytics <i class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img-placeholder" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-                        <i class="fas fa-table-list"></i>
+                    <div class="project-img-placeholder" style="background: var(--gradient-2);">
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Sales Dashboard</h3>
-                        <p>Complex data visualization and reporting built using Microsoft Excel.</p>
-                        <span class="badge">Excel</span>
+                        <h3>Financial Risk Dashboard</h3>
+                        <p>Interactive Power BI dashboard for credit risk assessment, visualizing default probabilities and loan portfolio health.</p>
+                        <div class="project-footer">
+                            <span class="badge">Power BI</span>
+                            <a href="#" class="project-link">Report <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-placeholder" style="background: var(--gradient-3);">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>COVID-19 Impact Analysis</h3>
+                        <p>Statistical analysis and visualization of global pandemic trends using Python, highlighting correlation between mobility and infection rates.</p>
+                        <div class="project-footer">
+                            <span class="badge">Tableau & Python</span>
+                            <a href="#" class="project-link">Case Study <i class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section dark-section">
+    <section id="contact" class="section">
         <div class="container">
             <div class="contact-box glass">
-                <h2 class="section-title">Let's Connect</h2>
-                <p>I'm always open to discussing new projects, creative ideas or opportunities.</p>
+                <h2 class="section-title">Let's Talk <span>Data</span></h2>
+                <p>Looking for a data-driven partner or have a challenging dataset? Reach out and let's build something insightful together.</p>
                 <div class="contact-details">
                     <a href="mailto:mariselvam35768@gmail.com" class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        mariselvam35768@gmail.com
+                        <span>Email Me</span>
+                    </a>
+                    <a href="tel:7639951356" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>7639951356</span>
                     </a>
                     <a href="https://www.linkedin.com/in/mari-selvam-4b6114281" target="_blank" class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        LinkedIn Profile
+                        <span>LinkedIn</span>
                     </a>
                 </div>
                 <div class="socials">
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/mariselvam35768-maker/" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/mr__xx__monster?igsh=ZWtiNjh1eDJxZGUy"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 Mari Selvam. Designed with passion.</p>
+        <p>&copy; 2026 Mari Selvam | Crafted for Data Excellence</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
