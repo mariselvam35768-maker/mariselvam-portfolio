@@ -2,7 +2,89 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register GSAP Plugins
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Cursor Follower
+    // 1. Background Canvas Animation (Data Network)
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const particleCount = 60;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+        constructor() {
+            this.init();
+        }
+
+        init() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.size = Math.random() * 2;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 242, 254, 0.3)';
+            ctx.fill();
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach((p, index) => {
+            p.update();
+            p.draw();
+
+            for (let j = index + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p.x - p2.x;
+                const dy = p.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(0, 242, 254, ${0.15 * (1 - dist / 150)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        });
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+    });
+
+    resize();
+    initParticles();
+    animate();
+
+    // 2. Cursor Follower
     const cursor = document.querySelector('.cursor-follower');
     document.addEventListener('mousemove', (e) => {
         gsap.to(cursor, {
@@ -13,43 +95,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Hero Section Animations
+    // 3. Hero Section Animations
     const heroTl = gsap.timeline();
-    heroTl.from(".logo", { y: -20, opacity: 0, duration: 0.8, ease: "power3.out" })
-          .from(".nav-links li", { y: -20, opacity: 0, stagger: 0.1, duration: 0.5 }, "-=0.4")
-          .from(".hero h1 span", { opacity: 0, scale: 0.8, duration: 1, ease: "back.out(1.7)" })
-          .from(".hero p", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
-          .from(".hero-btns .btn", { x: -20, opacity: 0, stagger: 0.2, duration: 0.8 }, "-=0.4");
+    heroTl.from(".glass-nav", { y: -50, opacity: 0, duration: 1, ease: "power4.out" })
+          .from(".hero h1 span", { 
+              y: 50, 
+              opacity: 0, 
+              duration: 1.2, 
+              ease: "expo.out",
+              stagger: 0.2 
+          }, "-=0.5")
+          .from(".hero p", { y: 30, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.8")
+          .from(".hero-btns .btn", { 
+              y: 20, 
+              opacity: 0, 
+              stagger: 0.2, 
+              duration: 0.8, 
+              ease: "back.out(1.7)" 
+          }, "-=0.6");
 
-    // 3. Scroll Reveal Animations
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        const title = section.querySelector('.section-title');
-        
-        if (title) {
-            gsap.from(title, {
-                scrollTrigger: {
-                    trigger: title,
-                    start: "top 90%",
-                    toggleActions: "play none none reverse"
-                },
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
-        }
+    // 4. Scroll Reveal Animations
+    const sectionTitles = document.querySelectorAll('.section-title');
+    sectionTitles.forEach(title => {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        });
     });
 
-    // 4. About Section - Text and Timeline
+    // 5. About Section reveal
     gsap.from(".about-text p", {
         scrollTrigger: {
             trigger: ".about-text",
             start: "top 80%"
         },
-        x: -50,
+        x: -40,
         opacity: 0,
-        stagger: 0.3,
+        stagger: 0.2,
         duration: 1,
         ease: "power3.out"
     });
@@ -59,82 +148,62 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger: ".education-timeline",
             start: "top 80%"
         },
-        x: 50,
+        x: 40,
         opacity: 0,
-        stagger: 0.4,
+        stagger: 0.3,
         duration: 1,
         ease: "power3.out"
     });
 
-    // 5. Skills Cards - Individual Reveal
+    // 6. Interactive Skill Cards
     gsap.utils.toArray(".skill-card").forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: "top bottom-=50",
+                start: "top 90%",
                 toggleActions: "play none none none"
             },
-            scale: 0.8,
+            y: 30,
             opacity: 0,
-            duration: 0.6,
-            ease: "back.out(1.2)",
-            delay: i % 3 * 0.1 // Small stagger based on row position
+            duration: 0.8,
+            ease: "power2.out",
+            delay: (i % 3) * 0.1
+        });
+
+        // Hover effect using GSAP
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, { y: -10, scale: 1.05, duration: 0.4, ease: "power2.out" });
+        });
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, { y: 0, scale: 1, duration: 0.4, ease: "power2.out" });
         });
     });
 
-    // 6. Project Cards - Zoom In Stagger
+    // 7. Project Cards Reveal
     gsap.utils.toArray(".project-card").forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
-                start: "top bottom-=50",
-                toggleActions: "play none none none"
+                start: "top 85%"
             },
             y: 50,
             opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            delay: i % 2 * 0.1
+            duration: 1,
+            ease: "expo.out",
+            delay: (i % 2) * 0.2
         });
-    });
-
-    // Refresh ScrollTrigger after all initializations
-    ScrollTrigger.refresh();
-
-    // 7. Robust Fallback: Force visibility after 3 seconds if animations don't trigger
-    setTimeout(() => {
-        gsap.to(".skill-card, .project-card, .section-title, .about-text p, .timeline-item", { 
-            opacity: 1, 
-            scale: 1, 
-            y: 0, 
-            x: 0,
-            duration: 0.5, 
-            overwrite: 'auto',
-            stagger: 0.05
-        });
-    }, 3000);
-
-    // 8. Contact Info Reveal
-    gsap.from(".contact-box", {
-        scrollTrigger: {
-            trigger: ".contact-box",
-            start: "top 85%"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out"
     });
 
     // 8. Nav Background Color Change on Scroll
+    const nav = document.querySelector('.glass-nav');
     window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.glass-nav');
-        if (window.scrollY > 50) {
-            nav.style.padding = "0.8rem 0";
-            nav.style.backgroundColor = "rgba(15, 23, 42, 0.95)";
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
         } else {
-            nav.style.padding = "1.2rem 0";
-            nav.style.backgroundColor = "rgba(15, 23, 42, 0.8)";
+            nav.classList.remove('scrolled');
         }
     });
+
+    // Refresh ScrollTrigger
+    ScrollTrigger.refresh();
 });
