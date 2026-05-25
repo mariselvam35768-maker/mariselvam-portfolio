@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+
     <canvas id="bg-canvas"></canvas>
     <div class="cursor-follower"></div>
 
@@ -32,12 +33,121 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-content">
-            <h1 class="reveal-text"><span>Data Analyst</span> &<br>Insight Architect</h1>
-            <p class="reveal-text"><strong>Fresher & Aspiring Data Analyst</strong> | Transforming complex datasets into actionable business intelligence. Specializing in Python, SQL, and advanced Data Visualization.</p>
-            <div class="hero-btns reveal-text">
-                <a href="#projects" class="btn primary-btn">Explore My Work</a>
-                <a href="#contact" class="btn secondary-btn">Let's Connect</a>
+        <div class="hero-grid container">
+            <!-- Left Side: Profile & Details -->
+            <div class="hero-left">
+                <div class="hero-badges">
+                    <div class="role-badge"><i class="fas fa-chart-line"></i> Data Analyst & Insight Architect</div>
+                    <div class="hero-status-badge"><span class="pulse-dot"></span> Open to Work</div>
+                </div>
+                <h1 class="reveal-text">Mari <span>Selvam</span></h1>
+                <div class="typing-container reveal-text">
+                    I am <span class="typed-text"></span><span class="cursor"></span>
+                </div>
+                <p class="reveal-text"><strong>B.Sc Computer Science Student</strong> at Ayya Nadar Janaki Ammal College (2026). Transforming complex datasets into actionable business intelligence using statistical analysis and creative data storytelling.</p>
+                
+                <!-- Hero Core Skills -->
+                <div class="hero-skills reveal-text">
+                    <span class="hero-skill-badge"><i class="fab fa-python"></i> Python</span>
+                    <span class="hero-skill-badge"><i class="fas fa-database"></i> SQL</span>
+                    <span class="hero-skill-badge"><i class="fas fa-chart-pie"></i> Power BI</span>
+                    <span class="hero-skill-badge"><i class="fas fa-chart-line"></i> Tableau</span>
+                    <span class="hero-skill-badge"><i class="fas fa-file-excel"></i> Advanced Excel</span>
+                    <span class="hero-skill-badge"><i class="fas fa-brain"></i> Machine Learning</span>
+                </div>
+
+                <!-- Resume Bar - Below Skills -->
+                <a href="Mari_Selvam_Resume.pdf" target="_blank" id="resume-btn" class="resume-bar reveal-text">
+                    <div class="resume-bar-left">
+                        <div class="resume-icon-wrap"><i class="fas fa-file-pdf"></i></div>
+                        <div class="resume-bar-text">
+                            <span class="resume-bar-title">My Resume</span>
+                            <span class="resume-bar-sub">Mari_Selvam_Resume.pdf • Click to open</span>
+                        </div>
+                    </div>
+                    <div class="resume-bar-action">
+                        <i class="fas fa-external-link-alt"></i> Open
+                    </div>
+                </a>
+
+                <!-- Hero Social Shortcuts -->
+                <div class="hero-socials reveal-text">
+                    <a href="https://github.com/mariselvam35768-maker/" target="_blank" class="hero-social-link">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mari-selvam-4b6114281" target="_blank" class="hero-social-link linkedin">
+                        <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:mariselvam35768@gmail.com" class="hero-social-link email">
+                        <i class="fas fa-envelope"></i><span>Email</span>
+                    </a>
+                    <a href="https://www.instagram.com/mr__xx__monster?igsh=ZWtiNjh1eDJxZGUy" target="_blank" class="hero-social-link insta">
+                        <i class="fab fa-instagram"></i><span>Instagram</span>
+                    </a>
+                </div>
+
+                <div class="hero-btns reveal-text">
+                    <a href="#projects" class="btn primary-btn">Explore My Work</a>
+                    <a href="#contact" class="btn tertiary-btn">Let's Connect</a>
+                </div>
+            </div>
+
+            <!-- Right Side: Interactive Data Dashboard Card -->
+            <div class="hero-right">
+                <div class="dashboard-card glass">
+                    <div class="card-header">
+                        <div class="window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="card-title">mari_selvam_metrics.json</span>
+                        <span class="status-badge"><span class="pulse-dot"></span> LIVE</span>
+                    </div>
+                    
+                    <div class="card-body">
+                        <!-- JSON Data Block -->
+                        <div class="json-block">
+                            <pre><code><span class="json-key">"status"</span>: <span class="json-val">"Active"</span>,
+<span class="json-key">"focus"</span>: <span class="json-val">"Data Analyst"</span>,
+<span class="json-key">"stats"</span>: {
+    <span class="json-key">"queries"</span>: <span class="json-val">"1200+"</span>,
+    <span class="json-key">"accuracy"</span>: <span class="json-val">"94.8%"</span>
+}</code></pre>
+                        </div>
+
+                        <!-- Mini Visualization Grid -->
+                        <div class="viz-grid">
+                            <!-- Chart 1: SVG Line Trend -->
+                            <div class="chart-box line-chart-box">
+                                <span class="chart-label">Trend Analysis</span>
+                                <svg class="trend-svg" viewBox="0 0 200 80">
+                                    <defs>
+                                        <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.4"/>
+                                            <stop offset="100%" stop-color="var(--primary)" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="trend-path-bg" d="M 0 60 Q 30 20 60 40 T 120 20 T 180 50 T 200 30 L 200 80 L 0 80 Z" fill="url(#chart-grad)" />
+                                    <path class="trend-path" d="M 0 60 Q 30 20 60 40 T 120 20 T 180 50 T 200 30" fill="none" stroke="var(--primary)" stroke-width="2.5" />
+                                    <circle cx="200" cy="30" r="4" fill="var(--accent)" class="pulse-circle" />
+                                </svg>
+                            </div>
+
+                            <!-- Chart 2: Circular Gauge -->
+                            <div class="chart-box circle-chart-box">
+                                <span class="chart-label">Skill Index</span>
+                                <div class="radial-gauge">
+                                    <svg class="gauge-svg" viewBox="0 0 60 60">
+                                        <circle class="gauge-bg" cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="5"/>
+                                        <circle class="gauge-fill" cx="30" cy="30" r="24" fill="none" stroke="var(--secondary)" stroke-width="5" stroke-dasharray="150" stroke-dashoffset="25"/>
+                                    </svg>
+                                    <div class="gauge-val">90%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -49,23 +159,84 @@
         <div class="container">
             <h2 class="section-title">The <span>Data</span> Story</h2>
             <div class="about-grid">
-                <div class="about-text">
-                    <p>I am a <strong>Fresher Data Analyst</strong> passionate about uncovering hidden patterns in data to drive strategic decisions. Currently pursuing B.Sc in Computer Science at Ayya Nadar Janaki Ammal College (2026).</p>
-                    <p>My approach combines statistical rigor with creative visualization, ensuring that data speaks a language everyone can understand.</p>
-                </div>
-                <div class="education-timeline">
-                    <h3>Academic Path</h3>
-                    <div class="timeline-item">
-                        <span class="date">2023 - 2026</span>
-                        <h4>Ayya Nadar Janaki Ammal College</h4>
-                        <p>B.Sc Computer Science | Focus on Data Structures & Analytics</p>
+
+                <!-- Left: Profile Card -->
+                <div class="about-profile-card glass">
+                    <!-- Avatar -->
+                    <div class="profile-avatar">
+                        <div class="avatar-ring">
+                            <div class="avatar-inner">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <span class="date">2017 - 2023</span>
-                        <h4>PACM Higher Secondary School</h4>
-                        <p>Computer Science Stream | Rajapalayam</p>
+
+                    <!-- Name & Role -->
+                    <div class="profile-name">Mari Selvam</div>
+                    <div class="profile-role">Data Analyst & Insight Architect</div>
+                    <div class="profile-college"><i class="fas fa-graduation-cap"></i> B.Sc CS · ANJAC · 2026</div>
+
+                    <!-- Quick Stats -->
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">6+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">5+</span>
+                            <span class="stat-label">Tools</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">94%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="profile-socials">
+                        <a href="https://github.com/mariselvam35768-maker/" target="_blank" class="profile-social-btn github">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/mari-selvam-4b6114281" target="_blank" class="profile-social-btn linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="mailto:mariselvam35768@gmail.com" class="profile-social-btn email">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                        <a href="https://www.instagram.com/mr__xx__monster?igsh=ZWtiNjh1eDJxZGUy" target="_blank" class="profile-social-btn instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+
+                    <!-- Resume Button -->
+                    <a href="Mari_Selvam_Resume.pdf" target="_blank" class="profile-resume-btn">
+                        <i class="fas fa-file-pdf"></i> Download Resume
+                    </a>
+                </div>
+
+                <!-- Right: Bio + Education -->
+                <div class="about-right">
+                    <div class="about-text">
+                        <p>I am a <strong>Fresher Data Analyst</strong> passionate about uncovering hidden patterns in data to drive strategic decisions. Currently pursuing B.Sc in Computer Science at Ayya Nadar Janaki Ammal College (2026).</p>
+                        <p>My approach combines statistical rigor with creative visualization, ensuring that data speaks a language everyone can understand.</p>
+                    </div>
+                    <div class="education-timeline">
+                        <h3>Academic Path</h3>
+                        <div class="timeline-item">
+                            <span class="date">2023 - 2026</span>
+                            <h4>Ayya Nadar Janaki Ammal College</h4>
+                            <p>B.Sc Computer Science | Focus on Data Structures &amp; Analytics</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="date">2017 - 2023</span>
+                            <h4>PACM Higher Secondary School</h4>
+                            <p>Computer Science Stream | Rajapalayam</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
