@@ -97,22 +97,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Hero Section Animations
     const heroTl = gsap.timeline();
-    heroTl.from(".glass-nav", { y: -50, opacity: 0, duration: 1, ease: "power4.out" })
-          .from(".hero h1 span", { 
-              y: 50, 
+    heroTl.from(".glass-nav", { y: -30, opacity: 0, duration: 0.6, ease: "power3.out" })
+          .from(".role-badge, .hero-status-badge", { 
+              y: -15, 
               opacity: 0, 
-              duration: 1.2, 
-              ease: "expo.out",
-              stagger: 0.2 
-          }, "-=0.5")
-          .from(".hero p", { y: 30, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.8")
-          .from(".hero-btns .btn", { 
+              stagger: 0.1,
+              duration: 0.5, 
+              ease: "power2.out" 
+          }, "-=0.3")
+          .from(".hero h1 span", { 
+              y: 30, 
+              opacity: 0, 
+              duration: 0.8, 
+              ease: "power3.out"
+          }, "-=0.3")
+          .from(".typing-container", { 
               y: 20, 
               opacity: 0, 
-              stagger: 0.2, 
+              duration: 0.6, 
+              ease: "power2.out" 
+          }, "-=0.4")
+          .from(".hero p", { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.4")
+          .from(".hero-skills, .resume-bar, .hero-socials, .hero-btns", { 
+              y: 15, 
+              opacity: 0, 
+              stagger: 0.08, 
+              duration: 0.6, 
+              ease: "power2.out" 
+          }, "-=0.4")
+          .from(".dashboard-card", { 
+              x: 30, 
+              scale: 0.95, 
+              opacity: 0, 
               duration: 0.8, 
-              ease: "back.out(1.7)" 
-          }, "-=0.6");
+              ease: "power3.out" 
+          }, "-=0.8");
+
+
+
 
     // 4. Scroll Reveal Animations
     const sectionTitles = document.querySelectorAll('.section-title');
@@ -203,6 +225,54 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.remove('scrolled');
         }
     });
+
+    // 9. Typewriter Animation (Dynamic Roles)
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+
+    const textArray = ["Data Analyst", "Python Developer", "Full Stack Developer"];
+    const typingDelay = 100;
+    const erasingDelay = 60;
+    const newTextDelay = 2000; // 2 seconds delay between texts
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+            if (!cursorSpan.classList.contains("typing")) {
+                cursorSpan.classList.add("typing");
+            }
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            setTimeout(erase, newTextDelay);
+        }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            if (!cursorSpan.classList.contains("typing")) {
+                cursorSpan.classList.add("typing");
+            }
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) {
+                textArrayIndex = 0;
+            }
+            setTimeout(type, typingDelay + 500);
+        }
+    }
+
+    // Start typing after initial GSAP animation completes
+    if (typedTextSpan) {
+        setTimeout(type, 1800);
+    }
 
     // Refresh ScrollTrigger
     ScrollTrigger.refresh();
